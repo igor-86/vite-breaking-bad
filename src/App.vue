@@ -6,11 +6,13 @@ import AppHeader from './components/AppHeader.vue';
 import AppForm from './components/AppForm.vue';
 import AppBoxcard from './components/AppBoxcard.vue';
 
+import { store } from "./store";
+
 export default {
   name: "AppVue",
   data() {
     return {
-
+      store
     }
   },
   components: {
@@ -29,4 +31,5 @@ export default {
 
 <style lang="scss">
 @use "./styles/general.scss" as*;
+@use "./styles/partials/variables.scss" as*;
 </style>
