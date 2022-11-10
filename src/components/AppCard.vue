@@ -1,6 +1,9 @@
 <script>
 export default {
     name: "AppCard",
+    props: {
+        character: Object
+    },
     data() {
         return {
             title: "Breaking Bad"
@@ -14,11 +17,11 @@ export default {
 
 <template>
     <div class="img-card">
-        <img src="../assets/img/breaking-bad.png" alt="">
+        <img :src="character.img" alt="">
     </div>
-    <h3>Walter</h3>
+    <h3>{{ character.name }}</h3>
     <h4>{{ title }}</h4>
-    <h4>Genre</h4>
+    <h4>{{ character.status }}</h4>
 
 </template>
 
@@ -29,6 +32,7 @@ export default {
 
     img {
         object-fit: cover;
+        object-position: center;
         height: 100%;
     }
 }
@@ -40,6 +44,7 @@ h3 {
     font-size: 1.4rem;
     text-align: center;
     margin-bottom: 2rem;
+    margin-top: 1rem;
 
 }
 

@@ -1,11 +1,12 @@
 <script>
 //Import
+import { store } from "../store";
 import AppCard from './AppCard.vue';
 export default {
     name: "AppBoxcard",
     data() {
         return {
-
+            store
         }
     },
     components: {
@@ -19,8 +20,8 @@ export default {
         <div class="container">
             <div class="slide">
                 <div class="row row-wrap">
-                    <div class="cards">
-                        <AppCard />
+                    <div class="cards" v-for="inner in store.characters" :key="inner.char_id">
+                        <AppCard :character="inner" />
                     </div>
                 </div>
             </div>

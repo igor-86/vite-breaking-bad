@@ -2,6 +2,7 @@
 
 <script>
 //Import
+import axios from "axios";
 import AppHeader from './components/AppHeader.vue';
 import AppForm from './components/AppForm.vue';
 import AppBoxcard from './components/AppBoxcard.vue';
@@ -20,6 +21,15 @@ export default {
     AppForm,
     AppBoxcard,
   },
+  created() {
+    axios.get("https://www.breakingbadapi.com/api/characters").then((resp) => {
+      //inserisco informazioni dall'oggetto Api
+      this.store.characters = resp.data;
+      console.log(this.store.characters);
+    })
+  },
+
+
 }
 </script>
 
