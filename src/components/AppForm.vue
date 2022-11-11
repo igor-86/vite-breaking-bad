@@ -5,7 +5,7 @@ export default {
     data() {
         return {
             store,
-            statusSelect: ["Breaking Bad", "Better Call Soul"],
+            statusSelect: ["Breaking Bad", "Better Call Saul"],
         }
     }, components: {
 
@@ -18,7 +18,7 @@ export default {
         <div class="form mt-1">
             <select name="" class="form-select" aria-label="Default select example" v-model="store.searchCategory">
                 <option select value="">Select category</option>
-                <option value="inner" v-for="(inner, index) in statusSelect" :key="index">{{ inner }}</option>
+                <option :value="inner" v-for="(inner, index) in statusSelect" :key="index">{{ inner }}</option>
             </select>
             <button class="btn" @click="$emit('reSearch')">Search</button>
         </div>

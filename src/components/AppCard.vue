@@ -20,7 +20,7 @@ export default {
         <img :src="character.img" alt="">
     </div>
     <h3>{{ character.name }}</h3>
-    <h4>{{ title }}</h4>
+    <h4>{{ character.category }}</h4>
     <h4>{{ character.status }}</h4>
 
 </template>

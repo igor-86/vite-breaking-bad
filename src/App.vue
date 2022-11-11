@@ -28,7 +28,7 @@ export default {
     getCharacters() {
       let apiUrl = "https://www.breakingbadapi.com/api/characters";
 
-      const urlCategory = {}
+      const urlCategory = {};
       if (this.store.searchCategory) {
         urlCategory.category = this.store.searchCategory;
       }
