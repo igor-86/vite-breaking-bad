@@ -22,11 +22,31 @@ export default {
     AppBoxcard,
   },
   created() {
-    axios.get("https://www.breakingbadapi.com/api/characters").then((resp) => {
-      //inserisco informazioni dall'oggetto Api
-      this.store.characters = resp.data;
-      console.log(this.store.characters);
-    })
+    this.getCharacters();
+  },
+  methods: {
+    getCharacters() {
+      let apiUrl = "https://www.breakingbadapi.com/api/characters";
+
+      const urlCategory = {}
+      if (this.store.searchCategory) {
+        urlCategory.category = this.store.searchCategory;
+      }
+
+      axios.get(apiUrl, { params: urlCategory }).then((resp) => {
+        this.store.characters = resp.data;
+      })
+    }
+
+
+
+    /* getCharacters() {
+      axios.get("https://www.breakingbadapi.com/api/characters").then((resp) => {
+        
+        this.store.characters = resp.data;
+        console.log(this.store.characters);
+      })
+    } */
   },
 
 
@@ -35,7 +55,7 @@ export default {
 
 <template>
   <AppHeader />
-  <AppForm />
+  <AppForm @reSearch="getCharacters" />
   <AppBoxcard />
 </template>
 
